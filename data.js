@@ -46,28 +46,16 @@ const SEED_LOCO_CLASSES = [
     notes: "Ex-ÖBB-numbered 1047 series Taurus locomotives."
   },
   {
-    code: "6301",
-    prefix: "6301",
+    code: "630",
+    prefix: "630",
     name: "630 100 (ex-V63 100)",
-    nickname: "Sziú",
+    nickname: "Gigant",
     builder: "Ganz, overhaul: Északi Járműjavító",
     era: "1975–1984, refurbished 1992",
     traction: "electric",
     topSpeed: "160 km/h",
     heating: "train-heating generator fitted",
     count: 45
-  },
-  {
-    code: "6300",
-    prefix: "6300",
-    name: "630 000 (ex-V63 000)",
-    nickname: "Sziú",
-    builder: "Ganz",
-    era: "1975–1984",
-    traction: "electric",
-    topSpeed: "120 km/h",
-    heating: "train-heating generator fitted",
-    count: 10
   },
   {
     code: "433",
@@ -110,7 +98,7 @@ const SEED_LOCO_CLASSES = [
     code: "460",
     prefix: "460",
     name: "460 000 (ex-V46 000)",
-    nickname: "",
+    nickname: "Szöcske",
     builder: "Ganz",
     era: "1983–1992",
     traction: "electric",
@@ -122,8 +110,8 @@ const SEED_LOCO_CLASSES = [
 
   // ---------- Diesel locomotives (MÁV-Start) ----------
   {
-    code: "6283",
-    prefix: "6283",
+    code: "628",
+    prefix: "628",
     name: "628 300 (ex-M62 300)",
     nickname: "Szergej",
     builder: "Luhansk (Voroshilovgrad), overhaul: Északi Járműjavító",
@@ -147,8 +135,8 @@ const SEED_LOCO_CLASSES = [
     notes: "Heavy freight diesel used across the former Eastern Bloc."
   },
   {
-    code: "4183",
-    prefix: "4183",
+    code: "418",
+    prefix: "418",
     name: "418 300 (ex-M41 2300)",
     nickname: "",
     builder: "Ganz, overhaul: Északi Járműjavító",
@@ -171,8 +159,8 @@ const SEED_LOCO_CLASSES = [
     count: 69
   },
   {
-    code: "4083",
-    prefix: "4083",
+    code: "408",
+    prefix: "408",
     name: "408 300 (ex-M40 300)",
     nickname: "",
     builder: "Ganz, overhaul: Északi Járműjavító",
@@ -195,18 +183,6 @@ const SEED_LOCO_CLASSES = [
     count: 20
   },
   {
-    code: "4485",
-    prefix: "4485",
-    name: "448 500 (ex-M44 500)",
-    nickname: "",
-    builder: "Ganz, overhaul: Szolnok",
-    era: "1954–1971, refurbished through 2008",
-    traction: "diesel-hydraulic",
-    topSpeed: "80 km/h",
-    heating: "none",
-    count: 12
-  },
-  {
     code: "448",
     prefix: "448",
     name: "448 100/200/300/400 (ex-M44)",
@@ -219,8 +195,8 @@ const SEED_LOCO_CLASSES = [
     count: 67
   },
   {
-    code: "4783",
-    prefix: "4783",
+    code: "478",
+    prefix: "478",
     name: "478 300 (ex-M47 3000)",
     nickname: "",
     builder: "Augusztus 23. Művek, overhaul: Északi Járműjavító",
@@ -231,8 +207,8 @@ const SEED_LOCO_CLASSES = [
     count: 75
   },
   {
-    code: "4782",
-    prefix: "4782",
+    code: "478",
+    prefix: "478",
     name: "478 200 (ex-M47 2000)",
     nickname: "",
     builder: "Augusztus 23. Művek",
@@ -243,8 +219,8 @@ const SEED_LOCO_CLASSES = [
     count: 6
   },
   {
-    code: "4381",
-    prefix: "4381",
+    code: "438",
+    prefix: "438",
     name: "438 100 (ex-M43 1100)",
     nickname: "Bobó",
     builder: "Augusztus 23. Művek, overhaul: Északi Járműjavító",
@@ -267,8 +243,8 @@ const SEED_LOCO_CLASSES = [
     count: 31
   },
   {
-    code: "2881",
-    prefix: "2881",
+    code: "288",
+    prefix: "288",
     name: "288 100 (ex-M28 1000)",
     nickname: "",
     builder: "Rába MVG (Győr)",
@@ -279,8 +255,8 @@ const SEED_LOCO_CLASSES = [
     count: 14
   },
   {
-    code: "2882",
-    prefix: "2882",
+    code: "288",
+    prefix: "288",
     name: "288 200 (ex-M28 2000)",
     nickname: "",
     builder: "Rába MVG (Győr)",
