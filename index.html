@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#1B1D1F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Loco Log">
+<title>Loco Log</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="plate-mark" aria-hidden="true">
+    <span class="rivet tl"></span><span class="rivet tr"></span>
+    <span class="rivet bl"></span><span class="rivet br"></span>
+  </div>
+  <h1>LOCO&nbsp;LOG</h1>
+  <span id="statusDot" class="status-dot" title="Offline-ready"></span>
+</header>
+
+<main id="app">
+
+  <!-- LOG TAB -->
+  <section class="tab" id="tab-log" data-tab="log">
+    <div class="card entry-card">
+      <label class="field-label" for="numberInput">Running number</label>
+      <input id="numberInput" class="number-input" type="text" inputmode="numeric"
+             autocomplete="off" placeholder="443 001" maxlength="16">
+
+      <div id="resolvePreview" class="resolve-preview empty">
+        <span class="rp-hint">Enter a number to identify the class.</span>
+      </div>
+
+      <div class="field-row">
+        <div class="field-col">
+          <label class="field-label" for="nicknameInput">Nickname <span class="opt">optional</span></label>
+          <input id="nicknameInput" class="text-input" type="text" placeholder="e.g. Old Rusty" maxlength="40">
+        </div>
+      </div>
+
+      <div class="field-row toggles">
+        <label class="switch-row">
+          <input type="checkbox" id="withLocation" checked>
+          <span>Record location</span>
+        </label>
+        <label class="switch-row">
+          <input type="checkbox" id="withTime" checked disabled>
+          <span>Record time (always on)</span>
+        </label>
+      </div>
+
+      <label class="field-label" for="noteInput">Note <span class="opt">optional</span></label>
+      <textarea id="noteInput" class="text-input" rows="2" placeholder="Livery, condition, train it was hauling…"></textarea>
+
+      <button id="logBtn" class="btn-primary" disabled>LOG ENCOUNTER</button>
+      <div id="logFeedback" class="log-feedback" aria-live="polite"></div>
+    </div>
+
+    <h2 class="section-heading">Recent encounters</h2>
+    <ul id="recentList" class="recent-list"></ul>
+  </section>
+
+  <!-- ROSTER TAB -->
+  <section class="tab hidden" id="tab-roster" data-tab="roster">
+    <div class="roster-controls">
+      <input id="rosterSearch" class="text-input" type="text" placeholder="Search number, class, nickname…">
+      <select id="rosterSort" class="select-input">
+        <option value="recent">Sort: most recent</option>
+        <option value="count">Sort: most encountered</option>
+        <option value="number">Sort: running number</option>
+      </select>
+    </div>
+    <ul id="rosterList" class="roster-list"></ul>
+  </section>
+
+  <!-- unit detail overlay -->
+  <section class="tab hidden" id="tab-unit" data-tab="unit">
+    <button id="unitBack" class="btn-back">&larr; Roster</button>
+    <div id="unitDetail"></div>
+  </section>
+
+  <!-- STATS TAB -->
+  <section class="tab hidden" id="tab-stats" data-tab="stats">
+    <div class="stat-grid" id="statSummary"></div>
+
+    <h2 class="section-heading">By class</h2>
+    <div id="classBars" class="bar-list"></div>
+
+    <h2 class="section-heading">Top 5 most encountered</h2>
+    <ol id="topFive" class="top-list"></ol>
+  </section>
+
+  <!-- SETTINGS TAB -->
+  <section class="tab hidden" id="tab-settings" data-tab="settings">
+    <div class="card">
+      <h2 class="section-heading no-top">Data</h2>
+      <p class="muted">Everything is stored only on this device (IndexedDB). Nothing is sent anywhere.</p>
+      <div class="btn-row">
+        <button id="exportJson" class="btn-secondary">Export JSON</button>
+        <button id="exportCsv" class="btn-secondary">Export encounters (CSV)</button>
+      </div>
+      <label class="field-label" for="importFile">Import JSON backup</label>
+      <input id="importFile" type="file" accept="application/json">
+      <div id="importFeedback" class="log-feedback"></div>
+    </div>
+
+    <div class="card">
+      <h2 class="section-heading no-top">Reference data</h2>
+      <p class="muted">Loco classes bundled with the app: <span id="classCount"></span>. Import an updated classes JSON file to replace or extend it.</p>
+      <label class="field-label" for="importClasses">Import classes JSON</label>
+      <input id="importClasses" type="file" accept="application/json">
+    </div>
+
+    <div class="card danger-zone">
+      <h2 class="section-heading no-top">Reset</h2>
+      <p class="muted">Deletes every logged unit and encounter on this device. Cannot be undone.</p>
+      <button id="clearAll" class="btn-danger">Clear all data</button>
+    </div>
+  </section>
+
+</main>
+
+<nav class="tabbar" id="tabbar">
+  <button class="tabbtn active" data-target="log"><span class="ticon">◧</span>Log</button>
+  <button class="tabbtn" data-target="roster"><span class="ticon">▤</span>Roster</button>
+  <button class="tabbtn" data-target="stats"><span class="ticon">▲</span>Stats</button>
+  <button class="tabbtn" data-target="settings"><span class="ticon">⚙</span>Settings</button>
+</nav>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
