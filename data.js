@@ -1,85 +1,359 @@
 /*
- * STARTER reference data — locomotive classes, matched by running-number prefix.
- *
- * IMPORTANT: this is a small, hand-picked seed, not an exhaustive or
- * guaranteed-current roster. Verify and expand it yourself before relying on
- * it — good sources: hu.wikipedia.org "MÁV mozdonysorozatok", vasutikocsi.hu,
- * vonatosszeallitas.hu. Edit the array below (or import a JSON file of the
- * same shape from Settings) to add classes.
+ * Locomotive class reference data — transcribed from the MÁV-Start roster
+ * table you provided (matches the structure of vonatosszeallitas.hu's
+ * "MÁV-Start mozdonyok" page). This replaces the earlier small placeholder
+ * seed, and also corrects it: 480 is a Bombardier TRAXX, not a Siemens
+ * Vectron as originally guessed, and "M43" corresponds to class 438, not
+ * 430 — both fixed here.
  *
  * "prefix" is matched against the digits-only running number, longest
- * prefix wins, so more specific entries (e.g. "4802" for a sub-batch) can
- * coexist with a shorter general one (e.g. "480").
+ * prefix wins. Sub-batches that share a 3-digit class but differ in their
+ * 4th digit (e.g. 630 000 vs 630 100) get 4-digit prefixes so they resolve
+ * separately; general/undifferentiated batches keep the shorter 3-digit
+ * prefix as a fallback.
+ *
+ * Only nicknames I'm reasonably confident are genuinely in common use
+ * (Szili, Szergej, Sziú, Bobó) are filled in — everything else is left
+ * blank rather than guessed. "topSpeed" and "count" are informational
+ * only; the app doesn't require them.
  */
 const SEED_LOCO_CLASSES = [
-  {
-    code: "460",
-    prefix: "460",
-    name: "V46 (460)",
-    nickname: "Szöcske",
-    builder: "Ganz-MÁVAG / Ganz Villamossági Művek",
-    era: "1983–1992",
-    traction: "electric",
-    notes: "Shunting locomotive, unable to heat cars on its own."
-  },
-  {
-    code: "431",
-    prefix: "431",
-    name: "V43 (431)",
-    nickname: "Szili",
-    builder: "Ganz-MÁVAG",
-    era: "1963-1982",
-    traction: "electric",
-    notes: "The original batch, analog control."
-  },
-  {
-    code: "432",
-    prefix: "432",
-    name: "V43",
-    nickname: "Szili",
-    builder: "Ganz-MÁVAG",
-    era: "1999-2007",
-    traction: "electric",
-    notes: "V6EE-rebuilt V43s with digital remote control, compatible with BDt control cars."
-  },
-  {
-    code: "433",
-    prefix: "433",
-    name: "V43",
-    nickname: "Szili",
-    builder: "Ganz-MÁVAG",
-    era: "2007-2008",
-    traction: "electric",
-    notes: "Updated control schema, compatible with Hlabesrtadt type control cars."
-  },
-  {
-    code: "630",
-    prefix: "630",
-    name: "V63",
-    nickname: "Gigant",
-    builder: "Ganz-MÁVAG",
-    era: "1975-1992",
-    traction: "electric",
-    notes: "6 axle heavy freight locomotive"
-  },
+  // ---------- Electric locomotives (MÁV-Start) ----------
   {
     code: "480",
     prefix: "480",
-    name: "Bombardier TRAXX",
-    nickname: "TRAXX",
+    name: "480 (Bombardier TRAXX)",
+    nickname: "",
     builder: "Bombardier",
-    era: "2010-2012",
-    traction: "electric, multi-system",
-    notes: "MÁV-START's newer InterCity electric fleet."
+    era: "2010–2012",
+    traction: "electric",
+    topSpeed: "160 km/h",
+    heating: "train-heating generator fitted",
+    count: 25,
+    notes: "MÁV-Start electric loco, no earlier Hungarian designation."
   },
   {
     code: "470",
     prefix: "470",
-    name: "Siemens Eurosprinter",
-    nickname: "Taurus",
+    name: "470 (ex-1047, Siemens Taurus)",
+    nickname: "",
     builder: "Siemens",
-    era: "2002-2006",
+    era: "2002–2006",
     traction: "electric",
-    notes: "Most powrful locomotive in MÁV fleet, also used by ÖBB"
+    topSpeed: "230 km/h",
+    heating: "train-heating generator fitted",
+    count: 10,
+    notes: "Ex-ÖBB-numbered 1047 series Taurus locomotives."
+  },
+  {
+    code: "6301",
+    prefix: "6301",
+    name: "630 100 (ex-V63 100)",
+    nickname: "Sziú",
+    builder: "Ganz, overhaul: Északi Járműjavító",
+    era: "1975–1984, refurbished 1992",
+    traction: "electric",
+    topSpeed: "160 km/h",
+    heating: "train-heating generator fitted",
+    count: 45
+  },
+  {
+    code: "6300",
+    prefix: "6300",
+    name: "630 000 (ex-V63 000)",
+    nickname: "Sziú",
+    builder: "Ganz",
+    era: "1975–1984",
+    traction: "electric",
+    topSpeed: "120 km/h",
+    heating: "train-heating generator fitted",
+    count: 10
+  },
+  {
+    code: "433",
+    prefix: "433",
+    name: "433 000 (ex-V43 3000)",
+    nickname: "Szili",
+    builder: "Ganz, overhaul: Északi Járműjavító",
+    era: "1971–1981, refurbished 2007–2008",
+    traction: "electric",
+    topSpeed: "120 km/h",
+    heating: "train-heating generator fitted",
+    count: 30
+  },
+  {
+    code: "432",
+    prefix: "432",
+    name: "432 000 (ex-V43 2000)",
+    nickname: "Szili",
+    builder: "Ganz, overhaul: Északi Járműjavító",
+    era: "1971–1982, refurbished 1999–2007",
+    traction: "electric",
+    topSpeed: "120 km/h",
+    heating: "train-heating generator fitted",
+    count: 56
+  },
+  {
+    code: "431",
+    prefix: "431",
+    name: "431 000 (ex-V43 1000)",
+    nickname: "Szili",
+    builder: "Ganz",
+    era: "1963–1982",
+    traction: "electric",
+    topSpeed: "120 km/h",
+    heating: "train-heating generator fitted",
+    count: 251,
+    notes: "Hungary's most numerous electric loco class."
+  },
+  {
+    code: "460",
+    prefix: "460",
+    name: "460 000 (ex-V46 000)",
+    nickname: "",
+    builder: "Ganz",
+    era: "1983–1992",
+    traction: "electric",
+    topSpeed: "80 km/h",
+    heating: "none",
+    count: 60,
+    notes: "Heavy shunting/hump-yard duty, no train heating."
+  },
+
+  // ---------- Diesel locomotives (MÁV-Start) ----------
+  {
+    code: "6283",
+    prefix: "6283",
+    name: "628 300 (ex-M62 300)",
+    nickname: "Szergej",
+    builder: "Luhansk (Voroshilovgrad), overhaul: Északi Járműjavító",
+    era: "1965–1974, refurbished 1999–2007",
+    traction: "diesel-electric",
+    topSpeed: "100 km/h",
+    heating: "none",
+    count: 34
+  },
+  {
+    code: "628",
+    prefix: "628",
+    name: "628 000/100/200 (ex-M62 000/100/200)",
+    nickname: "Szergej",
+    builder: "Luhansk (Voroshilovgrad)",
+    era: "1965–1974",
+    traction: "diesel-electric",
+    topSpeed: "100 km/h",
+    heating: "none",
+    count: 48,
+    notes: "Heavy freight diesel used across the former Eastern Bloc."
+  },
+  {
+    code: "4183",
+    prefix: "4183",
+    name: "418 300 (ex-M41 2300)",
+    nickname: "",
+    builder: "Ganz, overhaul: Északi Járműjavító",
+    era: "1973–1984, refurbished 2002–2007",
+    traction: "diesel-electric",
+    topSpeed: "100 km/h",
+    heating: "train-heating generator fitted",
+    count: 35
+  },
+  {
+    code: "418",
+    prefix: "418",
+    name: "418 100/200 (ex-M41 2100/2200)",
+    nickname: "",
+    builder: "Ganz",
+    era: "1973–1980",
+    traction: "diesel-electric",
+    topSpeed: "100 km/h",
+    heating: "train-heating generator fitted",
+    count: 69
+  },
+  {
+    code: "4083",
+    prefix: "4083",
+    name: "408 300 (ex-M40 300)",
+    nickname: "",
+    builder: "Ganz, overhaul: Északi Járműjavító",
+    era: "1963–1970",
+    traction: "diesel-hydraulic",
+    topSpeed: "100 km/h",
+    heating: "none",
+    count: 3
+  },
+  {
+    code: "408",
+    prefix: "408",
+    name: "408 100/200 (ex-M40 000/200)",
+    nickname: "",
+    builder: "Ganz",
+    era: "1963–1970",
+    traction: "diesel-hydraulic",
+    topSpeed: "100 km/h",
+    heating: "none",
+    count: 20
+  },
+  {
+    code: "4485",
+    prefix: "4485",
+    name: "448 500 (ex-M44 500)",
+    nickname: "",
+    builder: "Ganz, overhaul: Szolnok",
+    era: "1954–1971, refurbished through 2008",
+    traction: "diesel-hydraulic",
+    topSpeed: "80 km/h",
+    heating: "none",
+    count: 12
+  },
+  {
+    code: "448",
+    prefix: "448",
+    name: "448 100/200/300/400 (ex-M44)",
+    nickname: "",
+    builder: "Ganz",
+    era: "1954–1971",
+    traction: "diesel-hydraulic",
+    topSpeed: "80 km/h",
+    heating: "none",
+    count: 67
+  },
+  {
+    code: "4783",
+    prefix: "4783",
+    name: "478 300 (ex-M47 3000)",
+    nickname: "",
+    builder: "Augusztus 23. Művek, overhaul: Északi Járműjavító",
+    era: "1974–1979",
+    traction: "diesel-hydraulic",
+    topSpeed: "70 km/h",
+    heating: "none",
+    count: 75
+  },
+  {
+    code: "4782",
+    prefix: "4782",
+    name: "478 200 (ex-M47 2000)",
+    nickname: "",
+    builder: "Augusztus 23. Művek",
+    era: "1974–1979",
+    traction: "diesel-hydraulic",
+    topSpeed: "70 km/h",
+    heating: "none",
+    count: 6
+  },
+  {
+    code: "4381",
+    prefix: "4381",
+    name: "438 100 (ex-M43 1100)",
+    nickname: "Bobó",
+    builder: "Augusztus 23. Művek, overhaul: Északi Járműjavító",
+    era: "1974–1979",
+    traction: "diesel-hydraulic",
+    topSpeed: "60 km/h",
+    heating: "none",
+    count: 2
+  },
+  {
+    code: "438",
+    prefix: "438",
+    name: "438 000 (ex-M43 1000)",
+    nickname: "Bobó",
+    builder: "Augusztus 23. Művek",
+    era: "1974–1979",
+    traction: "diesel-hydraulic",
+    topSpeed: "60 km/h",
+    heating: "none",
+    count: 31
+  },
+  {
+    code: "2881",
+    prefix: "2881",
+    name: "288 100 (ex-M28 1000)",
+    nickname: "",
+    builder: "Rába MVG (Győr)",
+    era: "1955–1959",
+    traction: "diesel-mechanical",
+    topSpeed: "30 km/h",
+    heating: "none",
+    count: 14
+  },
+  {
+    code: "2882",
+    prefix: "2882",
+    name: "288 200 (ex-M28 2000)",
+    nickname: "",
+    builder: "Rába MVG (Győr)",
+    era: "1955–1959",
+    traction: "diesel-mechanical",
+    topSpeed: "50 km/h",
+    heating: "none",
+    count: 6
+  },
+  {
+    code: "2948",
+    prefix: "2948",
+    name: "2948 000 (ex-Mk48 000)",
+    nickname: "",
+    builder: "Rába MVG (Győr)",
+    era: "1960–1961",
+    traction: "diesel",
+    topSpeed: "unknown",
+    heating: "none",
+    count: 2
+  },
+
+  // ---------- Diesel locomotives owned by MÁV Zrt. (infrastructure co.) ----------
+  {
+    code: "2945",
+    prefix: "2945",
+    name: "2945 (ex-Mk45 2001–2006)",
+    nickname: "",
+    builder: "Augusztus 23. Művek, overhaul: Szolnok (some units)",
+    era: "built 1973, some refurbished in the 2010s",
+    traction: "diesel-hydraulic",
+    topSpeed: "40 km/h",
+    heating: "none",
+    count: 6,
+    notes: "Owned by MÁV Zrt. rather than MÁV-Start; individual units 2945 001–006."
+  },
+  {
+    code: "2920",
+    prefix: "2920",
+    name: "2920 703 (ex-C50 3703)",
+    nickname: "",
+    builder: "Északi, overhaul: Hűvösvölgy",
+    era: "built 1952, refurbished 2011",
+    traction: "diesel",
+    topSpeed: "30 km/h",
+    heating: "none",
+    count: 11,
+    notes: "Owned by MÁV Zrt.; Hűvösvölgy is the Children's Railway workshop."
+  },
+
+  // ---------- Steam locomotives owned by MÁV Zrt. (individually preserved) ----------
+  {
+    code: "490056",
+    prefix: "490056",
+    name: "490 056 (preserved steam)",
+    nickname: "",
+    builder: "MÁV Gépgyár, overhaul: Hűvösvölgy",
+    era: "built 1950, refurbished 2002",
+    traction: "steam",
+    topSpeed: "35 km/h",
+    heating: "none",
+    count: 1
+  },
+  {
+    code: "490039",
+    prefix: "490039",
+    name: "490 039 (preserved steam)",
+    nickname: "",
+    builder: "MÁV Gépgyár, overhaul: Székesfehérvár",
+    era: "built 1942, refurbished 2007",
+    traction: "steam",
+    topSpeed: "35 km/h",
+    heating: "none",
+    count: 1
   }
 ];

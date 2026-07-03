@@ -153,6 +153,7 @@ async function onNumberInput() {
     resolvePreview.innerHTML = `
       <div class="rp-class">${escapeHtml(currentClass.name)}${currentClass.nickname ? " — “" + escapeHtml(currentClass.nickname) + "”" : ""}</div>
       <div class="rp-meta">${escapeHtml(currentClass.builder || "")}${currentClass.era ? " · " + escapeHtml(currentClass.era) : ""}</div>
+      ${currentClass.topSpeed ? `<div class="rp-meta">Max ${escapeHtml(currentClass.topSpeed)}${currentClass.count ? " · fleet of " + currentClass.count : ""}</div>` : ""}
       ${existingUnit ? `<div class="rp-meta">Seen ${existingUnit.encounterCount || 0}× before</div>` : `<div class="rp-meta">New unit</div>`}
     `;
   } else {
@@ -342,6 +343,7 @@ async function openUnitDetail(number) {
   detail.innerHTML = `
     <div class="unit-head">${escapeHtml(number)}</div>
     <div class="unit-class">${cls ? escapeHtml(cls.name) + (cls.nickname ? " — “" + escapeHtml(cls.nickname) + "”" : "") : "Unknown class"}</div>
+    ${cls && cls.topSpeed ? `<div class="rp-meta" style="margin-bottom:14px">Max ${escapeHtml(cls.topSpeed)} · ${escapeHtml(cls.builder || "")}${cls.era ? " · " + escapeHtml(cls.era) : ""}</div>` : ""}
 
     <label class="field-label" for="unitNickname">Nickname</label>
     <input id="unitNickname" class="text-input" type="text" value="${escapeHtml(unit.nickname || "")}" maxlength="40">
