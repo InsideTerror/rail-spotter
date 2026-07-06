@@ -18,6 +18,68 @@
  * only; the app doesn't require them.
  */
 const SEED_LOCO_CLASSES = [
+  // ---------- EMUs / DMUs ----------
+  // These aren't locomotives, but the running/set number identifies the
+  // whole multiple unit the same way a loco number identifies a loco — no
+  // separate car records needed. "unitKind" just labels this for clarity,
+  // the app treats them identically to locomotives for logging and stats.
+  {
+    code: "415",
+    prefix: "415",
+    name: "415 (FLIRT)",
+    unitKind: "EMU",
+    nickname: "",
+    builder: "Stadler",
+    era: "2006–2016",
+    traction: "electric",
+    topSpeed: "160 km/h",
+    heating: "air-conditioned",
+    count: 123,
+    notes: "MÁV-START electric multiple unit, numbered 415 001–123."
+  },
+  {
+    code: "815",
+    prefix: "815",
+    name: "815 (KISS)",
+    unitKind: "EMU",
+    nickname: "",
+    builder: "Stadler",
+    era: "2020–2022",
+    traction: "electric",
+    topSpeed: "160 km/h",
+    heating: "air-conditioned",
+    count: 40,
+    notes: "Double-deck electric multiple unit, numbered 815 001–040."
+  },
+  {
+    code: "426",
+    prefix: "426",
+    name: "426 (Desiro)",
+    unitKind: "DMU",
+    nickname: "",
+    builder: "Siemens",
+    era: "2003–2006",
+    traction: "diesel-electric",
+    topSpeed: "120 km/h",
+    heating: "air-conditioned",
+    count: 31,
+    notes: "MÁV-START diesel multiple unit, numbered 426 001–031."
+  },
+  {
+    code: "425",
+    prefix: "425",
+    name: "425 (Talent)",
+    unitKind: "EMU",
+    nickname: "",
+    builder: "Bombardier",
+    era: "2006",
+    traction: "electric",
+    topSpeed: "140 km/h",
+    heating: "air-conditioned",
+    count: 10,
+    notes: "Electric multiple unit, numbered 425 001–010."
+  },
+
   // ---------- Electric locomotives (MÁV-Start) ----------
   {
     code: "480",
@@ -46,16 +108,28 @@ const SEED_LOCO_CLASSES = [
     notes: "Ex-ÖBB-numbered 1047 series Taurus locomotives."
   },
   {
-    code: "630",
-    prefix: "630",
+    code: "6301",
+    prefix: "6301",
     name: "630 100 (ex-V63 100)",
-    nickname: "Gigant",
+    nickname: "Sziú",
     builder: "Ganz, overhaul: Északi Járműjavító",
     era: "1975–1984, refurbished 1992",
     traction: "electric",
     topSpeed: "160 km/h",
     heating: "train-heating generator fitted",
     count: 45
+  },
+  {
+    code: "6300",
+    prefix: "6300",
+    name: "630 000 (ex-V63 000)",
+    nickname: "Sziú",
+    builder: "Ganz",
+    era: "1975–1984",
+    traction: "electric",
+    topSpeed: "120 km/h",
+    heating: "train-heating generator fitted",
+    count: 10
   },
   {
     code: "433",
@@ -98,7 +172,7 @@ const SEED_LOCO_CLASSES = [
     code: "460",
     prefix: "460",
     name: "460 000 (ex-V46 000)",
-    nickname: "Szöcske",
+    nickname: "",
     builder: "Ganz",
     era: "1983–1992",
     traction: "electric",
@@ -110,8 +184,8 @@ const SEED_LOCO_CLASSES = [
 
   // ---------- Diesel locomotives (MÁV-Start) ----------
   {
-    code: "628",
-    prefix: "628",
+    code: "6283",
+    prefix: "6283",
     name: "628 300 (ex-M62 300)",
     nickname: "Szergej",
     builder: "Luhansk (Voroshilovgrad), overhaul: Északi Járműjavító",
@@ -135,8 +209,8 @@ const SEED_LOCO_CLASSES = [
     notes: "Heavy freight diesel used across the former Eastern Bloc."
   },
   {
-    code: "418",
-    prefix: "418",
+    code: "4183",
+    prefix: "4183",
     name: "418 300 (ex-M41 2300)",
     nickname: "",
     builder: "Ganz, overhaul: Északi Járműjavító",
@@ -159,8 +233,8 @@ const SEED_LOCO_CLASSES = [
     count: 69
   },
   {
-    code: "408",
-    prefix: "408",
+    code: "4083",
+    prefix: "4083",
     name: "408 300 (ex-M40 300)",
     nickname: "",
     builder: "Ganz, overhaul: Északi Járműjavító",
@@ -183,6 +257,18 @@ const SEED_LOCO_CLASSES = [
     count: 20
   },
   {
+    code: "4485",
+    prefix: "4485",
+    name: "448 500 (ex-M44 500)",
+    nickname: "",
+    builder: "Ganz, overhaul: Szolnok",
+    era: "1954–1971, refurbished through 2008",
+    traction: "diesel-hydraulic",
+    topSpeed: "80 km/h",
+    heating: "none",
+    count: 12
+  },
+  {
     code: "448",
     prefix: "448",
     name: "448 100/200/300/400 (ex-M44)",
@@ -195,8 +281,8 @@ const SEED_LOCO_CLASSES = [
     count: 67
   },
   {
-    code: "478",
-    prefix: "478",
+    code: "4783",
+    prefix: "4783",
     name: "478 300 (ex-M47 3000)",
     nickname: "",
     builder: "Augusztus 23. Művek, overhaul: Északi Járműjavító",
@@ -207,8 +293,8 @@ const SEED_LOCO_CLASSES = [
     count: 75
   },
   {
-    code: "478",
-    prefix: "478",
+    code: "4782",
+    prefix: "4782",
     name: "478 200 (ex-M47 2000)",
     nickname: "",
     builder: "Augusztus 23. Művek",
@@ -219,8 +305,8 @@ const SEED_LOCO_CLASSES = [
     count: 6
   },
   {
-    code: "438",
-    prefix: "438",
+    code: "4381",
+    prefix: "4381",
     name: "438 100 (ex-M43 1100)",
     nickname: "Bobó",
     builder: "Augusztus 23. Művek, overhaul: Északi Járműjavító",
@@ -243,8 +329,8 @@ const SEED_LOCO_CLASSES = [
     count: 31
   },
   {
-    code: "288",
-    prefix: "288",
+    code: "2881",
+    prefix: "2881",
     name: "288 100 (ex-M28 1000)",
     nickname: "",
     builder: "Rába MVG (Győr)",
@@ -255,8 +341,8 @@ const SEED_LOCO_CLASSES = [
     count: 14
   },
   {
-    code: "288",
-    prefix: "288",
+    code: "2882",
+    prefix: "2882",
     name: "288 200 (ex-M28 2000)",
     nickname: "",
     builder: "Rába MVG (Győr)",
@@ -331,5 +417,28 @@ const SEED_LOCO_CLASSES = [
     topSpeed: "35 km/h",
     heating: "none",
     count: 1
+  },
+
+  // ---------- Bzmot, kept last on purpose ----------
+  // Given an explicit class code (117) rather than a string placeholder, so
+  // it behaves consistently with every other entry (e.g. as an object key).
+  // It's still matched by numeric range, not prefix — see resolveClass() in
+  // app.js — since colloquial Bzmot numbers (e.g. "Bzmot 042") don't embed
+  // a class code the way "443 001" does. displayItalic marks it in the UI
+  // so it's visually clear this one works differently from the rest.
+  {
+    code: "117",
+    range: { min: 1, max: 205 },
+    name: "Bzmot (railbus)",
+    unitKind: "DMU",
+    displayItalic: true,
+    nickname: "",
+    builder: "Tatra Studenka",
+    era: "1977–1984",
+    traction: "diesel-mechanical",
+    topSpeed: "80 km/h",
+    heating: "none",
+    count: 205,
+    notes: "MÁV diesel railbus, numbered Bzmot 001–205. Enter just the running number, e.g. \"42\" for Bzmot 042. Given class code 117 here for internal consistency — this isn't an official MÁV class number."
   }
 ];
