@@ -26,7 +26,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "415",
     prefix: "415",
-    name: "415 (FLIRT)",
+    name: "STALDER FLIRT",
     unitKind: "EMU",
     nickname: "",
     builder: "Stadler",
@@ -40,7 +40,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "815",
     prefix: "815",
-    name: "815 (KISS)",
+    name: "STADLER KISS",
     unitKind: "EMU",
     nickname: "",
     builder: "Stadler",
@@ -54,7 +54,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "426",
     prefix: "426",
-    name: "426 (Desiro)",
+    name: "Desiro",
     unitKind: "DMU",
     nickname: "",
     builder: "Siemens",
@@ -68,7 +68,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "425",
     prefix: "425",
-    name: "425 (Talent)",
+    name: "Talent",
     unitKind: "EMU",
     nickname: "",
     builder: "Bombardier",
@@ -84,7 +84,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "480",
     prefix: "480",
-    name: "480 (Bombardier TRAXX)",
+    name: "Bombardier TRAXX",
     nickname: "",
     builder: "Bombardier",
     era: "2010–2012",
@@ -97,7 +97,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "470",
     prefix: "470",
-    name: "470 (ex-1047, Siemens Taurus)",
+    name: "Siemens Taurus",
     nickname: "",
     builder: "Siemens",
     era: "2002–2006",
@@ -110,7 +110,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "6301",
     prefix: "6301",
-    name: "630 100 (ex-V63 100)",
+    name: "GANZ V63",
     nickname: "Gigant",
     builder: "Ganz, overhaul: Északi Járműjavító",
     era: "1975–1984, refurbished 1992",
@@ -122,7 +122,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "6300",
     prefix: "6300",
-    name: "630 000 (ex-V63 000)",
+    name: "GANZ V63",
     nickname: "Gigant",
     builder: "Ganz",
     era: "1975–1984",
@@ -134,7 +134,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "433",
     prefix: "433",
-    name: "433 000 (ex-V43 3000)",
+    name: "GANZ V43",
     nickname: "Szili",
     builder: "Ganz, overhaul: Északi Járműjavító",
     era: "1971–1981, refurbished 2007–2008",
@@ -146,7 +146,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "432",
     prefix: "432",
-    name: "432 000 (ex-V43 2000)",
+    name: "GANZ V43",
     nickname: "Szili",
     builder: "Ganz, overhaul: Északi Járműjavító",
     era: "1971–1982, refurbished 1999–2007",
@@ -158,7 +158,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "431",
     prefix: "431",
-    name: "431 000 (ex-V43 1000)",
+    name: "GANZ V43",
     nickname: "Szili",
     builder: "Ganz",
     era: "1963–1982",
@@ -171,8 +171,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "460",
     prefix: "460",
-    name: "460 000 (ex-V46 000)",
-    nickname: "",
+    name: "GANZ V46",
+    nickname: "Szöcske",
     builder: "Ganz",
     era: "1983–1992",
     traction: "electric",
@@ -186,7 +186,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "6283",
     prefix: "6283",
-    name: "628 300 (ex-M62 300)",
+    name: "MÁV M62",
     nickname: "Szergej",
     builder: "Luhansk (Voroshilovgrad), overhaul: Északi Járműjavító",
     era: "1965–1974, refurbished 1999–2007",
@@ -198,7 +198,7 @@ const SEED_LOCO_CLASSES = [
   {
     code: "628",
     prefix: "628",
-    name: "628 000/100/200 (ex-M62 000/100/200)",
+    name: "MÁV M62",
     nickname: "Szergej",
     builder: "Luhansk (Voroshilovgrad)",
     era: "1965–1974",
@@ -211,8 +211,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "4183",
     prefix: "4183",
-    name: "418 300 (ex-M41 2300)",
-    nickname: "",
+    name: "MÁV M41",
+    nickname: "Csörgő",
     builder: "Ganz, overhaul: Északi Járműjavító",
     era: "1973–1984, refurbished 2002–2007",
     traction: "diesel-electric",
@@ -223,8 +223,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "418",
     prefix: "418",
-    name: "418 100/200 (ex-M41 2100/2200)",
-    nickname: "",
+    name: "MÁV M41",
+    nickname: "Csörgő",
     builder: "Ganz",
     era: "1973–1980",
     traction: "diesel-electric",
@@ -235,8 +235,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "4083",
     prefix: "4083",
-    name: "408 300 (ex-M40 300)",
-    nickname: "",
+    name: "MÁV M40",
+    nickname: "Púpos",
     builder: "Ganz, overhaul: Északi Járműjavító",
     era: "1963–1970",
     traction: "diesel-hydraulic",
@@ -247,8 +247,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "408",
     prefix: "408",
-    name: "408 100/200 (ex-M40 000/200)",
-    nickname: "",
+    name: "MÁV M40",
+    nickname: "Púpos",
     builder: "Ganz",
     era: "1963–1970",
     traction: "diesel-hydraulic",
@@ -259,8 +259,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "4485",
     prefix: "4485",
-    name: "448 500 (ex-M44 500)",
-    nickname: "",
+    name: "MÁV M44",
+    nickname: "Bobó",
     builder: "Ganz, overhaul: Szolnok",
     era: "1954–1971, refurbished through 2008",
     traction: "diesel-hydraulic",
@@ -271,8 +271,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "448",
     prefix: "448",
-    name: "448 100/200/300/400 (ex-M44)",
-    nickname: "",
+    name: "MÁV M44",
+    nickname: "Bobó",
     builder: "Ganz",
     era: "1954–1971",
     traction: "diesel-hydraulic",
@@ -283,8 +283,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "4783",
     prefix: "4783",
-    name: "478 300 (ex-M47 3000)",
-    nickname: "",
+    name: "MÁV M47",
+    nickname: "Nagy Dácia",
     builder: "Augusztus 23. Művek, overhaul: Északi Járműjavító",
     era: "1974–1979",
     traction: "diesel-hydraulic",
@@ -295,8 +295,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "4782",
     prefix: "4782",
-    name: "478 200 (ex-M47 2000)",
-    nickname: "",
+    name: "MÁV M47",
+    nickname: "Nagy Dácia",
     builder: "Augusztus 23. Művek",
     era: "1974–1979",
     traction: "diesel-hydraulic",
@@ -307,8 +307,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "4381",
     prefix: "4381",
-    name: "438 100 (ex-M43 1100)",
-    nickname: "Bobó",
+    name: "MÁV M43",
+    nickname: "Kis Dácia",
     builder: "Augusztus 23. Művek, overhaul: Északi Járműjavító",
     era: "1974–1979",
     traction: "diesel-hydraulic",
@@ -319,8 +319,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "438",
     prefix: "438",
-    name: "438 000 (ex-M43 1000)",
-    nickname: "Bobó",
+    name: "MÁV M43",
+    nickname: "Kis Dácia",
     builder: "Augusztus 23. Művek",
     era: "1974–1979",
     traction: "diesel-hydraulic",
@@ -331,8 +331,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "2881",
     prefix: "2881",
-    name: "288 100 (ex-M28 1000)",
-    nickname: "",
+    name: "MÁV M28",
+    nickname: "Mazsola",
     builder: "Rába MVG (Győr)",
     era: "1955–1959",
     traction: "diesel-mechanical",
@@ -343,8 +343,8 @@ const SEED_LOCO_CLASSES = [
   {
     code: "2882",
     prefix: "2882",
-    name: "288 200 (ex-M28 2000)",
-    nickname: "",
+    name: "MÁV M28",
+    nickname: "Mazsola",
     builder: "Rába MVG (Győr)",
     era: "1955–1959",
     traction: "diesel-mechanical",
