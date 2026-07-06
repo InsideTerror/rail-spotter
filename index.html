@@ -10,7 +10,7 @@
 <title>Loco Log</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="icon" href="icon-512.png">
+<link rel="icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
@@ -61,6 +61,11 @@
       <label class="field-label" for="noteInput">Note <span class="opt">optional</span></label>
       <textarea id="noteInput" class="text-input" rows="2" placeholder="Livery, condition, train it was hauling…"></textarea>
 
+      <label class="field-label" for="routeInput">Route / service <span class="opt">optional</span></label>
+      <input id="routeInput" class="text-input" type="text" list="routeSuggestions"
+             placeholder="e.g. 30, Lake Balaton, 19707, Kék Hullám" maxlength="60">
+      <datalist id="routeSuggestions"></datalist>
+
       <button id="logBtn" class="btn-primary" disabled>LOG ENCOUNTER</button>
       <div id="logFeedback" class="log-feedback" aria-live="polite"></div>
     </div>
@@ -71,6 +76,10 @@
 
   <!-- ROSTER TAB -->
   <section class="tab hidden" id="tab-roster" data-tab="roster">
+    <div class="segmented" id="rosterModeToggle">
+      <button class="seg-btn active" data-mode="units">Locomotives</button>
+      <button class="seg-btn" data-mode="routes">Routes</button>
+    </div>
     <div class="roster-controls">
       <input id="rosterSearch" class="text-input" type="text" placeholder="Search number, class, nickname…">
       <select id="rosterSort" class="select-input">
@@ -86,6 +95,12 @@
   <section class="tab hidden" id="tab-unit" data-tab="unit">
     <button id="unitBack" class="btn-back">&larr; Roster</button>
     <div id="unitDetail"></div>
+  </section>
+
+  <!-- route detail overlay -->
+  <section class="tab hidden" id="tab-route" data-tab="route">
+    <button id="routeBack" class="btn-back">&larr; Roster</button>
+    <div id="routeDetail"></div>
   </section>
 
   <!-- STATS TAB -->
