@@ -32,6 +32,21 @@ body {
   min-height: 100dvh;
   padding-bottom: calc(72px + env(safe-area-inset-bottom));
   padding-top: env(safe-area-inset-top);
+  transition: background 0.35s ease;
+}
+
+/* Traction tint: a subtle wash across the whole page while a resolved
+   class's number is active in the Log tab — red for diesel, blue for
+   electric. Kept faint so text stays fully readable. */
+body.tint-diesel {
+  background:
+    radial-gradient(ellipse 120% 60% at 50% 0%, rgba(193, 82, 47, 0.16), transparent 65%),
+    var(--ink);
+}
+body.tint-electric {
+  background:
+    radial-gradient(ellipse 120% 60% at 50% 0%, rgba(74, 133, 209, 0.16), transparent 65%),
+    var(--ink);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -252,6 +267,19 @@ input[type=file] { color: var(--paper-dim); font-size: 13px; margin-top: 6px; wi
   padding: 12px 14px;
   margin-bottom: 8px;
 }
+.btn-delete {
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid var(--hairline);
+  color: var(--paper-dim);
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1;
+}
+.btn-delete:active { color: var(--rust); border-color: var(--rust); }
+.btn-delete.btn-edit:active { color: var(--signal); border-color: var(--signal); }
+.history-row-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .roster-row { cursor: pointer; }
 .row-num {
   font-family: var(--font-mono);
@@ -274,6 +302,44 @@ input[type=file] { color: var(--paper-dim); font-size: 13px; margin-top: 6px; wi
 .empty-state { color: var(--steel); font-size: 13.5px; padding: 20px 4px; text-align: center; }
 
 .roster-controls { display: flex; gap: 8px; margin-bottom: 14px; }
+
+.segmented {
+  display: flex;
+  background: var(--panel);
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  padding: 3px;
+  margin-bottom: 14px;
+}
+.seg-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--paper-dim);
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 9px 4px;
+  border-radius: 8px;
+}
+.seg-btn.active { background: var(--signal); color: var(--ink); }
+
+.row-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.route-badge {
+  display: inline-block;
+  font-size: 11px;
+  color: var(--signal);
+  background: rgba(232, 166, 40, 0.1);
+  border: 1px solid var(--signal-dim);
+  border-radius: 6px;
+  padding: 1px 7px;
+  margin-top: 4px;
+}
+
+.edit-form { padding-top: 4px; }
+.edit-form .field-label { margin-top: 10px; }
+.edit-form .field-label:first-child { margin-top: 0; }
 
 /* ---------- unit detail ---------- */
 .unit-head {
