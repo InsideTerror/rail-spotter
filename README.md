@@ -1,5 +1,7 @@
 # Loco Log
 
+[![Status - Operational](https://img.shields.io/badge/Status-Operational-2ea44f)](https://rail-spotter.vercel.app/)
+
 An offline-first locomotive-spotting logbook. Identify a class from a running
 number, log an encounter (time + optional GPS, automatically), give
 individual locomotives nicknames, and see stats: unique locos seen, per-class
