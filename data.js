@@ -13,7 +13,7 @@
  * prefix as a fallback.
  *
  * Only nicknames I'm reasonably confident are genuinely in common use
- * (Szili, Szergej, Sziú, Bobó) are filled in — everything else is left
+ * (Szili, Szergej, Gigant, Bobó) are filled in — everything else is left
  * blank rather than guessed. "topSpeed" and "count" are informational
  * only; the app doesn't require them.
  */
@@ -111,7 +111,7 @@ const SEED_LOCO_CLASSES = [
     code: "6301",
     prefix: "6301",
     name: "630 100 (ex-V63 100)",
-    nickname: "Sziú",
+    nickname: "Gigant",
     builder: "Ganz, overhaul: Északi Járműjavító",
     era: "1975–1984, refurbished 1992",
     traction: "electric",
@@ -123,7 +123,7 @@ const SEED_LOCO_CLASSES = [
     code: "6300",
     prefix: "6300",
     name: "630 000 (ex-V63 000)",
-    nickname: "Sziú",
+    nickname: "Gigant",
     builder: "Ganz",
     era: "1975–1984",
     traction: "electric",
